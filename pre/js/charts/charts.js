@@ -45,6 +45,8 @@ export function initChart(iframe) {
 
         /////////////////VISUALIZACIÓN DE PIRÁMIDES///////////////
 
+        console.log(data);
+
         ///Dividir los datos
         let currentType = 'porcentajes';
         let dataAbsolutoEspanol = data.filter(function(item) { if (item.Tipo == 'Españoles' && item.Data == 'Absolutos') { return item; }});
