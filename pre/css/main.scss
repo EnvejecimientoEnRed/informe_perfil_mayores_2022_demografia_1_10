@@ -1,4 +1,4 @@
-@import './reset', './rrss';
+@import './reset', './rrss', 'sellect_v2.css', './sellect.css';
 
 * {
     margin: 0;
@@ -68,6 +68,17 @@ body, button {
             justify-content: space-between;
             flex-wrap: wrap;
         }
+
+        &__logics--bis { //Botones adicionales para animar el gráfico
+            display: flex;
+            justify-content: center;
+
+            margin-top: 8px;
+
+            .btn__chart:last-child {
+                margin-left: 16px;
+            }
+        }
         
         //Debajo de todos los elementos lógicos tendremos la leyenda > Puede haber de 1 a 7 elementos dentro de la leyenda
         &__legend {
@@ -114,48 +125,40 @@ body, button {
 
         //Visualización
         &__viz {
-            height: 420px;
+            height: auto;
             margin-top: 12px;
 
-            background-color: #c3c3c3;
+            .chart--text {
+                display: flex;
+                justify-content: space-around;
 
-            & .tick text {
-                font-family: 'Titillium Web';
-                font-style: normal;
-                font-weight: 300;
-                font-size: 12px;
-                line-height: 10px;
-            
-                color: #A3A3A3;
-            }
-            
-            & .tick line {
-                stroke: #F0F0F0;
-                stroke-width: 0.5px;
-            }
-            
-            & .line-special {
-                stroke: #000 !important;
-                stroke-width: 0.5px !important;
+                margin-left: 90px;
             }
 
-            //Tabla
-            &.viz-table {
-                width: 860px;
-                height: 520px;
-                margin-top: 12px;
+            .chart--viz {
+                height: 640px;                
 
-                background-color: #c3c3c3;
-                overflow-x: visible;
-
-                thead {
-                    background-color: red;
+                & .tick text {
+                    font-family: 'Titillium Web';
+                    font-style: normal;
+                    font-weight: 300;
+                    font-size: 12px;
+                    line-height: 10px;
+                
+                    color: #A3A3A3;
                 }
-
-                tbody {
-                    background-color: blue;
+                
+                & .tick line {
+                    stroke: #F0F0F0;
+                    stroke-width: 0.5px;
+                }
+                
+                & .line-special {
+                    stroke: #000 !important;
+                    stroke-width: 0.5px !important;
                 }
             }
+            
         }
 
         //Pie
@@ -173,6 +176,7 @@ body, button {
 
                 &--data {
                     margin-right: 16px;
+                    width: 85%;
                 }
 
                 &--data span:first-of-type {
@@ -244,7 +248,8 @@ body, button {
         height: auto;
         min-height: 32px;
 
-        border: 1.2px solid;       
+        border: 1.2px solid;
+        background-color: #fcfcfc;      
 
         &.active {
             background-color: #fff;
@@ -253,10 +258,24 @@ body, button {
 
     &__animate {
         height: 32px;
-        border: 1.2px solid #41C0B4;
+        border: 1.2px solid #E37A42;
         
         img {
             margin-right: 3px;
+        }
+    }
+
+    &__chart {
+        width: auto;
+        max-width: 120px;
+        height: 32px;
+        border: 0.6px solid #E37A42;
+        background-color: #fcfcfc;
+
+        cursor: pointer;
+
+        &.active {
+            background-color: #fff;
         }
     }
 }
@@ -289,14 +308,14 @@ body, button {
 }
 
 .link {
-    border-bottom: 2px solid #4E7E7E;
+    border-bottom: 2px solid #F8B05C;
     color: #000;
     text-decoration: none;
 }
 
 .btn_share {
-    background-color: #e1e1e1;
-    border: 2px solid #4E7E7E;
+    background-color: #fcfcfc;
+    border: 2px solid #F8B05C;
     padding: 0px 8px;
     border-radius: 3px;
 
@@ -317,7 +336,7 @@ body, button {
 //Pestañas inferiores
 .tabs {
     width: 100%;
-    height: 32px;
+    height: 28px;
 
     .l-tabs {
         width: 100%;
@@ -351,7 +370,7 @@ body, button {
             cursor: pointer;
 
             //Estilo
-            background-color: #fafbfd;
+            background-color: #fcfcfc;
             color: #000;
 
             //Estado active
@@ -360,7 +379,7 @@ body, button {
                 color: #000;
 
                 border-top: 0px;
-                border-bottom: 2px solid #4E7E7E;
+                border-bottom: 2px solid #F8B05C;
             }
         }        
     }
@@ -375,7 +394,7 @@ body, button {
     max-width: 135px;
     height: auto;
     padding: 8px;
-    background-color: #F4F4F4;
+    background-color: #fcfcfc;
 
     &--title {
         font-style: normal;

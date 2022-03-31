@@ -1,0 +1,79 @@
+*,
+*::after,
+*::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #6fbb95;
+    outline: none;
+}
+
+a:hover,
+a:focus {
+    color: #fff;
+}
+
+.sellect-destination-list .sellect-item{
+    padding-top: 3px;
+    padding-bottom: 0;
+    font-size: 11px;
+}
+
+.sellect-origin-list .sellect-item{
+    font-size: 11px;
+}
+
+.sellect-destination-list .sellect-item:hover,
+.sellect-origin-list .sellect-item:hover{
+    color: #6fbb95;
+}
+
+input{
+    outline: none;
+}
+
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+.sellect-container{
+    background: #efefef;
+}
+
+.demo-list{
+    width: 49%;
+    background: #fff;
+    min-height: 100px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-top: 40px;
+    padding: 10px;
+}
+
+.demo-list span{
+    display: block;
+    font-size: 10px;
+    line-height: 2;
+    font-style: italic;
+}
+
+.selected-list{
+    float: left;
+}
+
+.selected-list:before{
+    content: 'selected items:';
+}
+
+.unselected-list{
+    float: right;
+}
+
+.unselected-list:before{
+    content: 'unselected items:';
+}
