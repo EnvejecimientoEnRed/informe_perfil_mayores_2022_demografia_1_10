@@ -24,7 +24,7 @@ export function initChart(iframe) {
     //Creación de otros elementos relativos al gráfico que no requieran lectura previa de datos > Selectores múltiples o simples, timelines, etc 
 
     //Lectura de datos
-    d3.csv('https://raw.githubusercontent.com/CarlosMunozDiazCSIC/informe_perfil_mayores_2022_demografia_1_11/main/data/piramide_2021_extranjeros_nacional.csv', function(error,data) {
+    d3.csv('https://raw.githubusercontent.com/CarlosMunozDiazCSIC/informe_perfil_mayores_2022_demografia_1_10/main/data/piramide_2021_extranjeros_nacional.csv', function(error,data) {
         if (error) throw error;
 
         //SELECCIÓN DE ELEMENTOS
@@ -244,7 +244,7 @@ export function initChart(iframe) {
         });
 
         //Iframe
-        setFixedIframeUrl('informe_perfil_mayores_2022_demografia_1_11','piramide_espanoles_extranjeros');
+        setFixedIframeUrl('informe_perfil_mayores_2022_demografia_1_10','piramide_espanoles_extranjeros');
 
         //Redes sociales > Antes tenemos que indicar cuál sería el texto a enviar
         setRRSSLinks('piramide_espanoles_extranjeros');
