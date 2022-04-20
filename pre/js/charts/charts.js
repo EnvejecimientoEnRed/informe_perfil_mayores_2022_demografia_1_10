@@ -170,8 +170,9 @@ export function initChart(iframe) {
                                 this.style.strokeWidth = '1';
             
                                 //Texto en tooltip
-                                let html = '<p class="chart__tooltip--title">' + d.Sexo + ' (' + d.Edad + ' años) en España rural</p>' + 
-                                    '<p class="chart__tooltip--text">Número absoluto de personas: ' + numberWithCommas3(parseFloat(d.Valor))+ '</p>';
+                                let html = '<p class="chart__tooltip--title">' + d.Sexo + ' (' + d.Edad + ' años)</p>' + 
+                                    '<p class="chart__tooltip--title_2">Tipo: ' + d.Tipo + '</p>' +
+                                    '<p class="chart__tooltip--text">Número absoluto de personas: ' + numberWithCommas3(parseInt(d.Valor))+ '</p>';
                             
                                 tooltip.html(html);
             
@@ -203,10 +204,38 @@ export function initChart(iframe) {
                             .attr('class', 'prueba')
                             .attr("fill", COLOR_COMP_2)
                             .style('opacity', '0.8')
-                            .attr("x", function(d) { if(d.Sexo == 'Hombres') { return xM(d.Valor); } else { return xF(0); }})
+                            .attr("x", x(0))
                             .attr("y", function(d) { return y(d.Edad); })
-                            .attr("width", function(d) { if(d.Sexo == 'Hombres') { return xM(0) - xM(d.Valor); } else { return xF(d.Valor) - xF(0); }})
-                            .attr("height", y.bandwidth());
+                            .attr("width", 0)
+                            .attr("height", y.bandwidth())
+                            .on('mouseover', function(d,i,e) {
+                                //Dibujo contorno de la rect
+                                this.style.stroke = '#000';
+                                this.style.strokeWidth = '1';
+            
+                                //Texto en tooltip
+                                let html = '<p class="chart__tooltip--title">' + d.Sexo + ' (' + d.Edad + ' años)</p>' + 
+                                    '<p class="chart__tooltip--title_2">Tipo: ' + d.Tipo + '</p>' +
+                                    '<p class="chart__tooltip--text">Número absoluto de personas: ' + numberWithCommas3(parseInt(d.Valor))+ '</p>';
+                            
+                                tooltip.html(html);
+            
+                                //Tooltip
+                                positionTooltip(window.event, tooltip);
+                                getInTooltip(tooltip);
+                            })
+                            .on('mouseout', function(d,i,e) {
+                                //Fuera contorno
+                                this.style.stroke = 'none';
+                                this.style.strokeWidth = '0';
+            
+                                //Fuera tooltip
+                                getOutTooltip(tooltip);
+                            })
+                            .transition()
+                            .duration(2000)
+                            .attr("x", function(d) { if(d.Sexo == 'Hombres') { return xM(d.Valor); } else { return xF(0); }})
+                            .attr('width', function(d) { if(d.Sexo == 'Hombres') { return xM(0) - xM(d.Valor); } else { return xF(d.Valor) - xF(0); }});
                     }
     
                     if(types[i] == 'Nacional') {
@@ -219,12 +248,39 @@ export function initChart(iframe) {
                             .attr('class', 'prueba')
                             .attr("fill", COLOR_ANAG_PRIM_3)
                             .style('opacity', '0.8')
-                            .attr("x", function(d) { if(d.Sexo == 'Hombres') { return xM(d.Valor); } else { return xF(0); }})
+                            .attr("x", x(0))
                             .attr("y", function(d) { return y(d.Edad); })
-                            .attr("width", function(d) { if(d.Sexo == 'Hombres') { return xM(0) - xM(d.Valor); } else { return xF(d.Valor) - xF(0); }})
-                            .attr("height", y.bandwidth());
+                            .attr("width", 0)
+                            .attr("height", y.bandwidth())
+                            .on('mouseover', function(d,i,e) {
+                                //Dibujo contorno de la rect
+                                this.style.stroke = '#000';
+                                this.style.strokeWidth = '1';
+            
+                                //Texto en tooltip
+                                let html = '<p class="chart__tooltip--title">' + d.Sexo + ' (' + d.Edad + ' años)</p>' + 
+                                    '<p class="chart__tooltip--title_2">Tipo: ' + d.Tipo + '</p>' +
+                                    '<p class="chart__tooltip--text">Número absoluto de personas: ' + numberWithCommas3(parseInt(d.Valor))+ '</p>';
+                            
+                                tooltip.html(html);
+            
+                                //Tooltip
+                                positionTooltip(window.event, tooltip);
+                                getInTooltip(tooltip);
+                            })
+                            .on('mouseout', function(d,i,e) {
+                                //Fuera contorno
+                                this.style.stroke = 'none';
+                                this.style.strokeWidth = '0';
+            
+                                //Fuera tooltip
+                                getOutTooltip(tooltip);
+                            })
+                            .transition()
+                            .duration(2000)
+                            .attr("x", function(d) { if(d.Sexo == 'Hombres') { return xM(d.Valor); } else { return xF(0); }})
+                            .attr('width', function(d) { if(d.Sexo == 'Hombres') { return xM(0) - xM(d.Valor); } else { return xF(d.Valor) - xF(0); }});
                     }
-
                 }                
 
             } else {
@@ -246,10 +302,38 @@ export function initChart(iframe) {
                             .attr('class', 'prueba')
                             .attr("fill", COLOR_PRIMARY_1)
                             .style('opacity', '0.8')
-                            .attr("x", function(d) { if(d.Sexo == 'Hombres') { return xM(d.Valor); } else { return xF(0); }})
+                            .attr("x", x(0))
                             .attr("y", function(d) { return y(d.Edad); })
-                            .attr("width", function(d) { if(d.Sexo == 'Hombres') { return xM(0) - xM(d.Valor); } else { return xF(d.Valor) - xF(0); }})
-                            .attr("height", y.bandwidth());
+                            .attr("width", 0)
+                            .attr("height", y.bandwidth())
+                            .on('mouseover', function(d,i,e) {
+                                //Dibujo contorno de la rect
+                                this.style.stroke = '#000';
+                                this.style.strokeWidth = '1';
+            
+                                //Texto en tooltip
+                                let html = '<p class="chart__tooltip--title">' + d.Sexo + ' (' + d.Edad + ' años)</p>' + 
+                                '<p class="chart__tooltip--title_2">Tipo: ' + d.Tipo + '</p>' +
+                                '<p class="chart__tooltip--text">% sobre total del grupo: ' + numberWithCommas3(parseFloat(d.Valor).toFixed(2))+ '%</p>';
+                            
+                                tooltip.html(html);
+            
+                                //Tooltip
+                                positionTooltip(window.event, tooltip);
+                                getInTooltip(tooltip);
+                            })
+                            .on('mouseout', function(d,i,e) {
+                                //Fuera contorno
+                                this.style.stroke = 'none';
+                                this.style.strokeWidth = '0';
+            
+                                //Fuera tooltip
+                                getOutTooltip(tooltip);
+                            })
+                            .transition()
+                            .duration(2000)
+                            .attr("x", function(d) { if(d.Sexo == 'Hombres') { return xM(d.Valor); } else { return xF(0); }})
+                            .attr('width', function(d) { if(d.Sexo == 'Hombres') { return xM(0) - xM(d.Valor); } else { return xF(d.Valor) - xF(0); }});
                     }
         
                     if(types[i] == 'Extranjeros') {
@@ -262,10 +346,38 @@ export function initChart(iframe) {
                             .attr('class', 'prueba')
                             .attr("fill", COLOR_COMP_2)
                             .style('opacity', '0.8')
-                            .attr("x", function(d) { if(d.Sexo == 'Hombres') { return xM(d.Valor); } else { return xF(0); }})
+                            .attr("x", x(0))
                             .attr("y", function(d) { return y(d.Edad); })
-                            .attr("width", function(d) { if(d.Sexo == 'Hombres') { return xM(0) - xM(d.Valor); } else { return xF(d.Valor) - xF(0); }})
-                            .attr("height", y.bandwidth());
+                            .attr("width", 0)
+                            .attr("height", y.bandwidth())
+                            .on('mouseover', function(d,i,e) {
+                                //Dibujo contorno de la rect
+                                this.style.stroke = '#000';
+                                this.style.strokeWidth = '1';
+            
+                                //Texto en tooltip
+                                let html = '<p class="chart__tooltip--title">' + d.Sexo + ' (' + d.Edad + ' años)</p>' + 
+                                '<p class="chart__tooltip--title_2">Tipo: ' + d.Tipo + '</p>' +
+                                '<p class="chart__tooltip--text">% sobre total del grupo: ' + numberWithCommas3(parseFloat(d.Valor).toFixed(2))+ '%</p>';
+                            
+                                tooltip.html(html);
+            
+                                //Tooltip
+                                positionTooltip(window.event, tooltip);
+                                getInTooltip(tooltip);
+                            })
+                            .on('mouseout', function(d,i,e) {
+                                //Fuera contorno
+                                this.style.stroke = 'none';
+                                this.style.strokeWidth = '0';
+            
+                                //Fuera tooltip
+                                getOutTooltip(tooltip);
+                            })
+                            .transition()
+                            .duration(2000)
+                            .attr("x", function(d) { if(d.Sexo == 'Hombres') { return xM(d.Valor); } else { return xF(0); }})
+                            .attr('width', function(d) { if(d.Sexo == 'Hombres') { return xM(0) - xM(d.Valor); } else { return xF(d.Valor) - xF(0); }});
                     }
     
                     if(types[i] == 'Nacional') {
@@ -278,10 +390,38 @@ export function initChart(iframe) {
                             .attr('class', 'prueba')
                             .attr("fill", COLOR_ANAG_PRIM_3)
                             .style('opacity', '0.8')
-                            .attr("x", function(d) { if(d.Sexo == 'Hombres') { return xM(d.Valor); } else { return xF(0); }})
+                            .attr("x", x(0))
                             .attr("y", function(d) { return y(d.Edad); })
-                            .attr("width", function(d) { if(d.Sexo == 'Hombres') { return xM(0) - xM(d.Valor); } else { return xF(d.Valor) - xF(0); }})
-                            .attr("height", y.bandwidth());
+                            .attr("width", 0)
+                            .attr("height", y.bandwidth())
+                            .on('mouseover', function(d,i,e) {
+                                //Dibujo contorno de la rect
+                                this.style.stroke = '#000';
+                                this.style.strokeWidth = '1';
+            
+                                //Texto en tooltip
+                                let html = '<p class="chart__tooltip--title">' + d.Sexo + ' (' + d.Edad + ' años)</p>' + 
+                                '<p class="chart__tooltip--title_2">Tipo: ' + d.Tipo + '</p>' +
+                                '<p class="chart__tooltip--text">% sobre total del grupo: ' + numberWithCommas3(parseFloat(d.Valor).toFixed(2))+ '%</p>';
+                            
+                                tooltip.html(html);
+            
+                                //Tooltip
+                                positionTooltip(window.event, tooltip);
+                                getInTooltip(tooltip);
+                            })
+                            .on('mouseout', function(d,i,e) {
+                                //Fuera contorno
+                                this.style.stroke = 'none';
+                                this.style.strokeWidth = '0';
+            
+                                //Fuera tooltip
+                                getOutTooltip(tooltip);
+                            })
+                            .transition()
+                            .duration(2000)
+                            .attr("x", function(d) { if(d.Sexo == 'Hombres') { return xM(d.Valor); } else { return xF(0); }})
+                            .attr('width', function(d) { if(d.Sexo == 'Hombres') { return xM(0) - xM(d.Valor); } else { return xF(d.Valor) - xF(0); }});
                     }
 
                 }

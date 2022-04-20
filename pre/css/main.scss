@@ -94,6 +94,8 @@ button {
             flex-wrap: wrap;            
 
             &--item {
+                width: 126px;
+
                 position: relative;
                 margin-top: 8px;
 
@@ -445,6 +447,16 @@ button {
         font-size: 12px;
         line-height: 1.1;
         color: #262626;
+    }
+
+    &--title_2 {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 1.1;
+        color: #262626;
+
+        margin-top: 4px;
     }
 
     &--text {
