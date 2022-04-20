@@ -7,7 +7,7 @@ function setChartHeight(iframe) {
         document.getElementsByClassName('container')[0].style.height = '688px';
         document.getElementsByClassName('main')[0].style.height = '660px';
 
-        let titleBlock = document.getElementsByClassName('b-title')[0].clientHeight < 54 ? 54 : document.getElementsByClassName('b-title')[0].clientHeight;
+        let titleBlock = document.getElementsByClassName('b-title')[0].clientHeight < 65 ? 65 : document.getElementsByClassName('b-title')[0].clientHeight;
         let logicBlock = document.getElementsByClassName('chart__logics')[0].clientHeight;
         let footerBlock = document.getElementsByClassName('chart__footer')[0].clientHeight;
         let footerTop = 8, containerPadding = 8;
@@ -17,7 +17,7 @@ function setChartHeight(iframe) {
         let height = 660; //Altura total del main
         document.getElementsByClassName('chart__viz')[0].style.height = height - titleBlock - logicBlock - footerBlock - footerTop - containerPadding + 'px';
     } else {
-        //document.getElementsByClassName('main')[0].style.height = document.getElementsByClassName('main')[0].clientHeight + 'px';
+        document.getElementsByClassName('main')[0].style.minHeight = document.getElementsByClassName('main')[0].clientHeight + 'px';
         //document.getElementsByClassName('main')[0].style.height = auto;
     }
     pymChild.sendHeight();

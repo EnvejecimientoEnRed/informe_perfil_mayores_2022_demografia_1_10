@@ -311,6 +311,8 @@
         }else{
             self.originListHTML.classList.remove('open');
         }
+
+        pymChild.sendHeight();
     }
 
     function extendDefaults(source, properties) {
