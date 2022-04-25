@@ -275,10 +275,14 @@ button {
         min-height: 32px;
 
         border: 1.2px solid;
-        background-color: #fcfcfc;      
+        color: #262626;
+        background-color: #c0e1e2;       
+        &:hover { background-color: #cacbcd; }
 
         &.active {
-            background-color: #fff;
+            background-color: #1b1c1d;
+            color: #fff;
+            &:hover { background-color: #27292a; }   
         }
     }
 
