@@ -301,11 +301,15 @@ button {
         width: auto;
         max-width: 120px;
         height: 32px;
-        border: 0.6px solid #E37A42;
-        background-color: #d4d4d4;
+        border: 0px;
+        color: #262626;
+        background-color: #e0e1e2;       
+        &:hover { background-color: #cacbcd; }
 
         &.active {
-            background-color: #fff;
+            background-color: #1b1c1d;
+            color: #fff;
+            &:hover { background-color: #27292a; }   
         }
 
         &:first-of-type {margin-right: 8px;}
