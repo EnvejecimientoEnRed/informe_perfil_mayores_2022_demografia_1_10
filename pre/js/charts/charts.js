@@ -14,7 +14,7 @@ COLOR_COMP_2 = '#AADCE0',
 COLOR_ANAG_PRIM_3 = '#9E3515';
 let tooltip = d3.select('#tooltip');
 
-export function initChart(iframe) {
+export function initChart() {
     //Creación de otros elementos relativos al gráfico que no requieran lectura previa de datos > Selectores múltiples o simples, timelines, etc 
 
     //Lectura de datos
@@ -102,38 +102,6 @@ export function initChart(iframe) {
 
         svg.append("g")
             .call(yAxis);
-
-        function initPyramid() {
-            //Extranjeros
-            svg.append("g")
-                .attr('class', 'chart-g')
-                .selectAll("rect")
-                .data(dataRelativoExtranjero)
-                .enter()
-                .append("rect")
-                .attr('class', 'prueba')
-                .attr("fill", function(d) { if(d.Sexo == 'Hombres') { return COLOR_PRIMARY_1; } else { return COLOR_COMP_1; }})
-                .style('opacity', '0.8')
-                .attr("x", function(d) { if(d.Sexo == 'Hombres') { return xM(d.Valor); } else { return xF(0); }})
-                .attr("y", function(d) { return y(d.Edad); })
-                .attr("width", function(d) { if(d.Sexo == 'Hombres') { return xM(0) - xM(d.Valor); } else { return xF(d.Valor) - xF(0); }})
-                .attr("height", y.bandwidth());
-            
-            //Españoles
-            svg.append("g")
-                .attr('class', 'chart-g')
-                .selectAll("rect")
-                .data(dataRelativoEspanol)
-                .enter()
-                .append("rect")
-                .attr('class', 'prueba')
-                .attr("fill", function(d) { if(d.Sexo == 'Hombres') { return COLOR_PRIMARY_1; } else { return COLOR_COMP_1; }})
-                .style('opacity', '0.6')
-                .attr("x", function(d) { if(d.Sexo == 'Hombres') { return xM(d.Valor); } else { return xF(0); }})
-                .attr("y", function(d) { return y(d.Edad); })
-                .attr("width", function(d) { if(d.Sexo == 'Hombres') { return xM(0) - xM(d.Valor); } else { return xF(d.Valor) - xF(0); }})
-                .attr("height", y.bandwidth());
-        }
 
         function setPyramids(types) {
             //Borrado de datos
@@ -444,7 +412,11 @@ export function initChart(iframe) {
             currentType = 'Absolutos';
 
             //Cambiamos gráfico
-            setPyramids(selectedArr, currentType);           
+            setPyramids(selectedArr, currentType);        
+            
+            setTimeout(() => {
+                setChartCanvas();
+            }, 4000);
         });
 
         document.getElementById('data_porcentajes').addEventListener('click', function() {
@@ -456,12 +428,20 @@ export function initChart(iframe) {
             currentType = 'Porcentajes';
 
             //Cambiamos gráfico
-            setPyramids(selectedArr, currentType);           
+            setPyramids(selectedArr, currentType); 
+            
+            setTimeout(() => {
+                setChartCanvas();
+            }, 4000);
         });
 
         //Animación del gráfico
         document.getElementById('replay').addEventListener('click', function() {
             setPyramids(selectedArr, currentType);
+
+            setTimeout(() => {
+                setChartCanvas();
+            }, 4000);
         });
 
         //Iframe
@@ -471,7 +451,9 @@ export function initChart(iframe) {
         setRRSSLinks('piramide_espanoles_Extranjeros');
 
         //Captura de pantalla de la visualización
-        setChartCanvas();
+        setTimeout(() => {
+            setChartCanvas();
+        }, 4000);
 
         let pngDownload = document.getElementById('pngImage');
 
@@ -480,6 +462,6 @@ export function initChart(iframe) {
         });
 
         //Altura del frame
-        setChartHeight(iframe);
+        setChartHeight();
     });    
 }

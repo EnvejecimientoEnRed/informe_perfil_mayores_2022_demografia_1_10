@@ -1,4 +1,3 @@
-import 'url-search-params-polyfill';
 import './modules/tabs';
 import {initChart} from './charts/charts';
 
@@ -8,13 +7,4 @@ import '../css/main.scss';
 /////////////
 //////// RECOGIDA DE PARÁMETROS DE LA URL
 /////////////
-getUrlParams();
-
-function getUrlParams() {
-    const params = new URLSearchParams(window.location.search);
-
-    //Visualización y tipo de iframe
-    const iframe = params.get('iframe');
-
-    initChart(iframe);
-}
+initChart();
