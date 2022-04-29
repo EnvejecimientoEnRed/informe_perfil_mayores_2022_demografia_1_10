@@ -504,6 +504,14 @@ button {
             &__options {
                 justify-content: center;
             }
+
+            &__logics {
+                flex-direction: column;
+            }
+
+            &__legend {
+                width: 100%;
+            }
         }
     }
 
