@@ -22,10 +22,10 @@ export function initChart() {
         if (error) throw error;
 
         //SELECCIÓN DE ELEMENTOS
-        let selectedArr = ['Españoles','Extranjeros'];
+        let selectedArr = ['Nacional'];
         let mySellect = sellect("#my-element", {
-            originList: ['Españoles','Extranjeros','Nacional'],
-            destinationList: ['Españoles','Extranjeros'],
+            originList: ['Nacional','Españoles','Extranjeros'],
+            destinationList: ['Nacional','Españoles','Extranjeros'],
             onInsert: onChange,
             onRemove: onChange
         });
@@ -127,7 +127,6 @@ export function initChart() {
                             .append("rect")
                             .attr('class', 'prueba')
                             .attr("fill", COLOR_PRIMARY_1)
-                            .style('opacity', '0.8')
                             .attr("x", x(0))
                             .attr("y", function(d) { return y(d.Edad); })
                             .attr("width", 0)
@@ -171,7 +170,6 @@ export function initChart() {
                             .append("rect")
                             .attr('class', 'prueba')
                             .attr("fill", COLOR_COMP_2)
-                            .style('opacity', '0.8')
                             .attr("x", x(0))
                             .attr("y", function(d) { return y(d.Edad); })
                             .attr("width", 0)
@@ -214,16 +212,15 @@ export function initChart() {
                             .enter()
                             .append("rect")
                             .attr('class', 'prueba')
-                            .attr("fill", COLOR_ANAG_PRIM_3)
-                            .style('opacity', '0.8')
+                            .attr('fill','transparent')
+                            .attr("stroke", COLOR_ANAG_PRIM_3)
                             .attr("x", x(0))
                             .attr("y", function(d) { return y(d.Edad); })
                             .attr("width", 0)
                             .attr("height", y.bandwidth())
                             .on('mouseover', function(d,i,e) {
                                 //Dibujo contorno de la rect
-                                this.style.stroke = '#000';
-                                this.style.strokeWidth = '1';
+                                this.style.strokeWidth = '2';
             
                                 //Texto en tooltip
                                 let html = '<p class="chart__tooltip--title">' + d.Sexo + ' (' + d.Edad + ' años)</p>' + 
@@ -238,8 +235,7 @@ export function initChart() {
                             })
                             .on('mouseout', function(d,i,e) {
                                 //Fuera contorno
-                                this.style.stroke = 'none';
-                                this.style.strokeWidth = '0';
+                                this.style.strokeWidth = '1';
             
                                 //Fuera tooltip
                                 getOutTooltip(tooltip);
@@ -269,7 +265,6 @@ export function initChart() {
                             .append("rect")
                             .attr('class', 'prueba')
                             .attr("fill", COLOR_PRIMARY_1)
-                            .style('opacity', '0.8')
                             .attr("x", x(0))
                             .attr("y", function(d) { return y(d.Edad); })
                             .attr("width", 0)
@@ -313,7 +308,6 @@ export function initChart() {
                             .append("rect")
                             .attr('class', 'prueba')
                             .attr("fill", COLOR_COMP_2)
-                            .style('opacity', '0.8')
                             .attr("x", x(0))
                             .attr("y", function(d) { return y(d.Edad); })
                             .attr("width", 0)
@@ -356,16 +350,15 @@ export function initChart() {
                             .enter()
                             .append("rect")
                             .attr('class', 'prueba')
-                            .attr("fill", COLOR_ANAG_PRIM_3)
-                            .style('opacity', '0.8')
+                            .attr('fill','transparent')
+                            .attr("stroke", COLOR_ANAG_PRIM_3)
                             .attr("x", x(0))
                             .attr("y", function(d) { return y(d.Edad); })
                             .attr("width", 0)
                             .attr("height", y.bandwidth())
                             .on('mouseover', function(d,i,e) {
                                 //Dibujo contorno de la rect
-                                this.style.stroke = '#000';
-                                this.style.strokeWidth = '1';
+                                this.style.strokeWidth = '2';
             
                                 //Texto en tooltip
                                 let html = '<p class="chart__tooltip--title">' + d.Sexo + ' (' + d.Edad + ' años)</p>' + 
@@ -380,8 +373,7 @@ export function initChart() {
                             })
                             .on('mouseout', function(d,i,e) {
                                 //Fuera contorno
-                                this.style.stroke = 'none';
-                                this.style.strokeWidth = '0';
+                                this.style.strokeWidth = '1';
             
                                 //Fuera tooltip
                                 getOutTooltip(tooltip);
