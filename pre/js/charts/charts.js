@@ -24,7 +24,7 @@ export function initChart() {
         //SELECCIÓN DE ELEMENTOS
         let selectedArr = ['Nacional'];
         let mySellect = sellect("#my-element", {
-            originList: ['Nacional','Españoles','Extranjeros'],
+            originList: ['Nacional'],
             destinationList: ['Nacional','Españoles','Extranjeros'],
             onInsert: onChange,
             onRemove: onChange
