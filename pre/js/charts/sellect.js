@@ -125,6 +125,7 @@
     function swapItemDOM(trigger, list) {
         var self = this;
         var item;
+
         if(!trigger) return;
 
         item = trigger.classList.contains('sellect-trigger') ? trigger : trigger.parentNode;

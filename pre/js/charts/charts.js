@@ -24,8 +24,8 @@ export function initChart() {
         //SELECCIÓN DE ELEMENTOS
         let selectedArr = ['Nacional'];
         let mySellect = sellect("#my-element", {
-            originList: ['Nacional'],
-            destinationList: ['Nacional','Españoles','Extranjeros'],
+            originList: ['Nacional','Españoles','Extranjeros'],
+            destinationList: ['Nacional'],
             onInsert: onChange,
             onRemove: onChange
         });
@@ -50,7 +50,8 @@ export function initChart() {
         ///Valores iniciales de altura, anchura y márgenes > Primer desarrollo solo con Valores absolutos
         let margin = {top: 12.5, right: 25, bottom: 25, left: 70},
             width = document.getElementById('chart').clientWidth - margin.left - margin.right,
-            height = width * 0.67 - margin.top - margin.bottom;
+            auxHeight = width * 0.67 - margin.top - margin.bottom,
+            height = auxHeight < 180 ? 180 : auxHeight;
 
         let svg = d3.select("#chart")
             .append("svg")
